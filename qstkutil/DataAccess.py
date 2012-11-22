@@ -249,6 +249,8 @@ class DataAccess(object):
                     list_index.append(4)
                 elif (sItem == DataItem.ACTUAL_CLOSE):
                     list_index.append(5)
+                elif (sItem == DataItem.CLOSE):
+                    list_index.append(5)
                 elif(sItem == DataItem.VOL):
                     list_index.append(6)
                 elif(sItem == DataItem.SPLITS):
