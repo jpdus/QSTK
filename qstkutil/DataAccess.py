@@ -39,6 +39,9 @@ class DataItem (object):
     VOLUME="volume"
     ACTUAL_CLOSE="actual_close"
     ADJUSTED_CLOSE="adj_close"
+    SPLITS="splits"
+    EARNINGS="earnings"
+    DIVIDENDS="dividends"
     ''' Compustat label list pulled from _analyze() in compustat_csv_to_pkl.py '''
     COMPUSTAT = ['gvkey', 'fyearq', 'fqtr', 'fyr', 'ACCTSTDQ', 'ADRRQ', 'AJEXQ', 'AJPQ', 'CURRTRQ', 'CURUSCNQ', 'PDQ', 'PDSA', 'PDYTD', 'SCFQ', 'SRCQ', 'UPDQ', 'ACCDQ', 'ACCHGQ', 'ACCOQ', 'ACOMINCQ', 'ACOQ', 'ACOXQ', 'ACTQ', 'ADPACQ', 'ALTOQ', 'AMQ', 'ANCQ', 'ANOQ', 'AOCIDERGLQ', 'AOCIOTHERQ', 'AOCIPENQ', 'AOCISECGLQ', 'AOL2Q', 'AOQ', 'AOTQ', 'APOQ', 'APQ', 'AQAQ', 'AQDQ', 'AQEPSQ', 'AQPL1Q', 'AQPQ', 'ARCED12', 'ARCEDQ', 'ARCEEPS12', 'ARCEEPSQ', 'ARCEQ', 'ARTFSQ', 'ATQ', 'AUL3Q', 'AUTXRQ', 'BCEFQ', 'BCTQ', 'BDIQ', 'CAPCSTQ', 'CAPR1Q', 'CAPR2Q', 'CAPR3Q', 'CAPRTQ', 'CAPSQ', 'CAQ', 'CEQQ', 'CFBDQ', 'CFEREQ', 'CFOQ', 'CFPDOQ', 'CHEQ', 'CHQ', 'CHSQ', 'CIBEGNIQ', 'CICURRQ', 'CIDERGLQ', 'CIMIIQ', 'CIOTHERQ', 'CIPENQ', 'CIQ', 'CISECGLQ', 'CITOTALQ', 'CLTQ', 'COGSQ', 'CSH12Q', 'CSHFDQ', 'CSHIQ', 'CSHOPQ', 'CSHOQ', 'CSHPRQ', 'CSTKEQ', 'CSTKQ', 'DCOMQ', 'DFPACQ', 'DFXAQ', 'DILADQ', 'DILAVQ', 'DITQ', 'DLCQ', 'DLTTQ', 'DOQ', 'DPACREQ', 'DPACTQ', 'DPQ', 'DPRETQ', 'DPTBQ', 'DPTCQ', 'DRCQ', 'DRLTQ', 'DTEAQ', 'DTEDQ', 'DTEEPSQ', 'DTEPQ', 'DVPDPQ', 'DVPQ', 'DVRREQ', 'DVTQ', 'EPSF12', 'EPSFIQ', 'EPSFXQ', 'EPSPIQ', 'EPSPXQ', 'EPSX12', 'EQRTQ', 'EROQ', 'ESOPCTQ', 'ESOPNRQ', 'ESOPRQ', 'ESOPTQ', 'ESUBQ', 'FCAQ', 'FEAQ', 'FELQ', 'FFOQ', 'GDWLAMQ', 'GDWLIA12', 'GDWLIAQ', 'GDWLID12', 'GDWLIDQ', 'GDWLIEPS12', 'GDWLIEPSQ', 'GDWLIPQ', 'GDWLQ', 'GLAQ', 'GLCEA12', 'GLCEAQ', 'GLCED12', 'GLCEDQ', 'GLCEEPS12', 'GLCEEPSQ', 'GLCEPQ', 'GLDQ', 'GLEPSQ', 'GLPQ', 'GPQ', 'HEDGEGLQ', 'IATIQ', 'IBADJ12', 'IBADJQ', 'IBCOMQ', 'IBKIQ', 'IBMIIQ', 'IBQ', 'ICAPTQ', 'IDITQ', 'IIREQ', 'IITQ', 'INTACCQ', 'INTANOQ', 'INTANQ', 'INTCQ', 'INVFGQ', 'INVOQ', 'INVRMQ', 'INVTQ', 'INVWIPQ', 'IOBDQ', 'IOIQ', 'IOREQ', 'IPQ', 'IPTIQ', 'ISGTQ', 'ISTQ', 'IVAEQQ', 'IVAOQ', 'IVIQ', 'IVLTQ', 'IVPTQ', 'IVSTQ', 'IVTFSQ', 'LCABGQ', 'LCACUQ', 'LCOQ', 'LCOXQ', 'LCTQ', 'LLTQ', 'LNOQ', 'LOL2Q', 'LOQ', 'LOXDRQ', 'LQPL1Q', 'LSEQ', 'LSQ', 'LTMIBQ', 'LTQ', 'LUL3Q', 'MIBNQ', 'MIBQ', 'MIBTQ', 'MIIQ', 'MSAQ', 'MTLQ', 'NCOQ', 'NIITQ', 'NIMQ', 'NIQ', 'NITQ', 'NOPIOQ', 'NOPIQ', 'NPATQ', 'NRTXTDQ', 'NRTXTEPSQ', 'NRTXTQ', 'OEPF12', 'OEPS12', 'OEPSXQ', 'OIADPQ', 'OIBDPQ', 'OPEPSQ', 'OPROQ', 'OPTDRQ', 'OPTFVGRQ', 'OPTLIFEQ', 'OPTRFRQ', 'OPTVOLQ', 'PCLQ', 'PIQ', 'PLLQ', 'PNC12', 'PNCD12', 'PNCDQ', 'PNCEPS12', 'PNCEPSQ', 'PNCIAPQ', 'PNCIAQ', 'PNCIDPQ', 'PNCIDQ', 'PNCIEPSPQ', 'PNCIEPSQ', 'PNCIPPQ', 'PNCIPQ', 'PNCPD12', 'PNCPDQ', 'PNCPEPS12', 'PNCPEPSQ', 'PNCPQ', 'PNCQ', 'PNCWIAPQ', 'PNCWIAQ', 'PNCWIDPQ', 'PNCWIDQ', 'PNCWIEPQ', 'PNCWIEPSQ', 'PNCWIPPQ', 'PNCWIPQ', 'PNRSHOQ', 'PPEGTQ', 'PPENTQ', 'PRCAQ', 'PRCD12', 'PRCDQ', 'PRCE12', 'PRCEPS12', 'PRCEPSQ', 'PRCPD12', 'PRCPDQ', 'PRCPEPS12', 'PRCPEPSQ', 'PRCPQ', 'PRCQ', 'PRCRAQ', 'PRSHOQ', 'PSTKNQ', 'PSTKQ', 'PSTKRQ', 'PTRANQ', 'PVOQ', 'PVTQ', 'RATIQ', 'RAWMSMQ', 'RCAQ', 'RCDQ', 'RCEPSQ', 'RCPQ', 'RDIPAQ', 'RDIPDQ', 'RDIPEPSQ', 'RDIPQ', 'RECCOQ', 'RECDQ', 'RECTAQ', 'RECTOQ', 'RECTQ', 'RECTRQ', 'RECUBQ', 'REITQ', 'REQ', 'RETQ', 'REUNAQ', 'REVTQ', 'RISQ', 'RLLQ', 'RLTQ', 'RRA12', 'RRAQ', 'RRD12', 'RRDQ', 'RREPS12', 'RREPSQ', 'RRPQ', 'RVLRVQ', 'RVTIQ', 'RVUTXQ', 'SAAQ', 'SALEQ', 'SALQ', 'SBDCQ', 'SCOQ', 'SCQ', 'SCTQ', 'SEQOQ', 'SEQQ', 'SETA12', 'SETAQ', 'SETD12', 'SETDQ', 'SETEPS12', 'SETEPSQ', 'SETPQ', 'SPCE12', 'SPCED12', 'SPCEDPQ', 'SPCEDQ', 'SPCEEPS12', 'SPCEEPSP12', 'SPCEEPSPQ', 'SPCEEPSQ', 'SPCEP12', 'SPCEPD12', 'SPCEPQ', 'SPCEQ', 'SPIDQ', 'SPIEPSQ', 'SPIOAQ', 'SPIOPQ', 'SPIQ', 'SRETQ', 'SSNPQ', 'STKCHQ', 'STKCOQ', 'STKCPAQ', 'TDSGQ', 'TDSTQ', 'TEQQ', 'TFVAQ', 'TFVCEQ', 'TFVLQ', 'TIEQ', 'TIIQ', 'TRANSAQ', 'TSTKNQ', 'TSTKQ', 'TXDBAQ', 'TXDBQ', 'TXDIQ', 'TXDITCQ', 'TXPQ', 'TXTQ', 'TXWQ', 'UACOQ', 'UAOQ', 'UAPTQ', 'UCAPSQ', 'UCCONSQ', 'UCEQQ', 'UDDQ', 'UDMBQ', 'UDOLTQ', 'UDPCOQ', 'UDVPQ', 'UGIQ', 'UINVQ', 'ULCOQ', 'UNIAMIQ', 'UNNPQ', 'UNOPINCQ', 'UOPIQ', 'UPDVPQ', 'UPMCSTKQ', 'UPMPFQ', 'UPMPFSQ', 'UPMSUBPQ', 'UPSTKCQ', 'UPSTKQ', 'URECTQ', 'USPIQ', 'USUBDVPQ', 'USUBPCVQ', 'UTEMQ', 'WCAPQ', 'WDAQ', 'WDDQ', 'WDEPSQ', 'WDPQ', 'XAGTQ', 'XBDTQ', 'XCOMIQ', 'XCOMQ', 'XDVREQ', 'XIDOQ', 'XINTQ', 'XIOQ', 'XIQ', 'XIVIQ', 'XIVREQ', 'XOBDQ', 'XOIQ', 'XOPROQ', 'XOPRQ', 'XOPT12', 'XOPTD12', 'XOPTD12P', 'XOPTDQ', 'XOPTDQP', 'XOPTEPS12', 'XOPTEPSP12', 'XOPTEPSQ', 'XOPTEPSQP', 'XOPTQ', 'XOPTQP', 'XOREQ', 'XPPQ', 'XRDQ', 'XRETQ', 'XSGAQ', 'XSQ', 'XSTOQ', 'XSTQ', 'XTQ', 'ACCHGY', 'ACCLIY', 'ACQDISNY', 'ACQDISOY', 'ADPACY', 'AFUDCCY', 'AFUDCIY', 'AMCY', 'AMY', 'AOLOCHY', 'APALCHY', 'APCHY', 'AQAY', 'AQCY', 'AQDY', 'AQEPSY', 'AQPY', 'ARCEDY', 'ARCEEPSY', 'ARCEY', 'ASDISY', 'ASINVY', 'ATOCHY', 'AUTXRY', 'BCEFY', 'BCTY', 'BDIY', 'CAPCSTY', 'CAPFLY', 'CAPXFIY', 'CAPXY', 'CDVCY', 'CFBDY', 'CFEREY', 'CFLAOTHY', 'CFOY', 'CFPDOY', 'CHECHY', 'CHENFDY', 'CIBEGNIY', 'CICURRY', 'CIDERGLY', 'CIMIIY', 'CIOTHERY', 'CIPENY', 'CISECGLY', 'CITOTALY', 'CIY', 'COGSY', 'CSHFDY', 'CSHPRY', 'CSTKEY', 'DCSFDY', 'DCUFDY', 'DEPCY', 'DFXAY', 'DILADY', 'DILAVY', 'DISPOCHY', 'DITY', 'DLCCHY', 'DLTISY', 'DLTRY', 'DOCY', 'DOY', 'DPCY', 'DPRETY', 'DPY', 'DTEAY', 'DTEDY', 'DTEEPSY', 'DTEPY', 'DVPDPY', 'DVPY', 'DVRECY', 'DVRREY', 'DVTY', 'DVY', 'EIEACY', 'EPSFIY', 'EPSFXY', 'EPSPIY', 'EPSPXY', 'EQDIVPY', 'ESUBCY', 'ESUBY', 'EXRESY', 'EXREUY', 'EXREY', 'FCAY', 'FFOY', 'FIAOY', 'FINCFY', 'FININCY', 'FINLEY', 'FINREY', 'FINVAOY', 'FOPOXY', 'FOPOY', 'FOPTY', 'FSRCOPOY', 'FSRCOPTY', 'FSRCOY', 'FSRCTY', 'FUSEOY', 'FUSETY', 'GDWLAMY', 'GDWLIAY', 'GDWLIDY', 'GDWLIEPSY', 'GDWLIPY', 'GLAY', 'GLCEAY', 'GLCEDY', 'GLCEEPSY', 'GLCEPY', 'GLDY', 'GLEPSY', 'GLPY', 'GPY', 'HEDGEGLY', 'IBADJY', 'IBCOMY', 'IBCY', 'IBKIY', 'IBMIIY', 'IBY', 'IDITY', 'IIREY', 'IITY', 'INTANDY', 'INTANPY', 'INTCY', 'INTFACTY', 'INTFLY', 'INTIACTY', 'INTOACTY', 'INTPDY', 'INTPNY', 'INTRCY', 'INVCHY', 'INVDSPY', 'INVSVCY', 'IOBDY', 'IOIY', 'IOREY', 'IPTIY', 'ISGTY', 'ITCCY', 'IVACOY', 'IVCHY', 'IVIY', 'IVNCFY', 'IVSTCHY', 'LIQRESNY', 'LIQRESOY', 'LNDEPY', 'LNINCY', 'LNMDY', 'LNREPY', 'LTDCHY', 'LTDLCHY', 'LTLOY', 'MICY', 'MIIY', 'MISEQY', 'NCFLIQY', 'NCOY', 'NEQMIY', 'NIITY', 'NIMY', 'NITY', 'NIY', 'NOASUBY', 'NOPIOY', 'NOPIY', 'NRTXTDY', 'NRTXTEPSY', 'NRTXTY', 'OANCFCY', 'OANCFDY', 'OANCFY', 'OEPSXY', 'OIADPY', 'OIBDPY', 'OPEPSY', 'OPPRFTY', 'OPROY', 'OPTDRY', 'OPTFVGRY', 'OPTLIFEY', 'OPTRFRY', 'OPTVOLY', 'PCLY', 'PDVCY', 'PIY', 'PLIACHY', 'PLLY', 'PNCDY', 'PNCEPSY', 'PNCIAPY', 'PNCIAY', 'PNCIDPY', 'PNCIDY', 'PNCIEPSPY', 'PNCIEPSY', 'PNCIPPY', 'PNCIPY', 'PNCPDY', 'PNCPEPSY', 'PNCPY', 'PNCWIAPY', 'PNCWIAY', 'PNCWIDPY', 'PNCWIDY', 'PNCWIEPSY', 'PNCWIEPY', 'PNCWIPPY', 'PNCWIPY', 'PNCY', 'PRCAY', 'PRCDY', 'PRCEPSY', 'PRCPDY', 'PRCPEPSY', 'PRCPY', 'PROSAIY', 'PRSTKCCY', 'PRSTKCY', 'PRSTKPCY', 'PRVY', 'PSFIXY', 'PTRANY', 'PURTSHRY', 'PVOY', 'RAWMSMY', 'RCAY', 'RCDY', 'RCEPSY', 'RCPY', 'RDIPAY', 'RDIPDY', 'RDIPEPSY', 'RDIPY', 'RECCHY', 'REITY', 'REVTY', 'RISY', 'RRAY', 'RRDY', 'RREPSY', 'RRPY', 'RVY', 'SALEY', 'SCSTKCY', 'SETAY', 'SETDY', 'SETEPSY', 'SETPY', 'SHRCAPY', 'SIVY', 'SPCEDPY', 'SPCEDY', 'SPCEEPSPY', 'SPCEEPSY', 'SPCEPY', 'SPCEY', 'SPIDY', 'SPIEPSY', 'SPIOAY', 'SPIOPY', 'SPIY', 'SPPCHY', 'SPPEY', 'SPPIVY', 'SPSTKCY', 'SRETY', 'SSTKY', 'STFIXAY', 'STINVY', 'STKCHY', 'STKCOY', 'STKCPAY', 'SUBDISY', 'SUBPURY', 'TDCY', 'TDSGY', 'TFVCEY', 'TIEY', 'TIIY', 'TSAFCY', 'TXACHY', 'TXBCOFY', 'TXBCOY', 'TXDCY', 'TXDIY', 'TXOPY', 'TXPDY', 'TXTY', 'TXWY', 'TXY', 'UAOLOCHY', 'UDFCCY', 'UDVPY', 'UFRETSDY', 'UGIY', 'UNIAMIY', 'UNOPINCY', 'UNWCCY', 'UOISY', 'UPDVPY', 'UPTACY', 'USPIY', 'USTDNCY', 'USUBDVPY', 'UTFDOCY', 'UTFOSCY', 'UTMEY', 'UWKCAPCY', 'WCAPCHCY', 'WCAPCHY', 'WCAPCY', 'WCAPOPCY', 'WCAPSAY', 'WCAPSUY', 'WCAPSY', 'WCAPTY', 'WCAPUY', 'WDAY', 'WDDY', 'WDEPSY', 'WDPY', 'XAGTY', 'XBDTY', 'XCOMIY', 'XCOMY', 'XDVREY', 'XIDOCY', 'XIDOY', 'XINTY', 'XIOY', 'XIVIY', 'XIVREY', 'XIY', 'XOBDY', 'XOIY', 'XOPROY', 'XOPRY', 'XOPTDQPY', 'XOPTDY', 'XOPTEPSQPY', 'XOPTEPSY', 'XOPTQPY', 'XOPTY', 'XOREY', 'XRDY', 'XRETY', 'XSGAY', 'XSTOY', 'XSTY', 'XSY', 'XTY', 'DLRSN', 'FYRC', 'GGROUP', 'GIND', 'GSECTOR', 'GSUBIND', 'NAICS', 'PRIUSA', 'SIC', 'SPCINDCD', 'SPCSECCD', 'STKO']
 
@@ -50,6 +53,7 @@ class DataSource(object):
     COMPUSTAT="Compustat"
     CUSTOM="Custom"    
     MLT = "ML4Trading"
+    QUANTQUOTE="Quantquote"
     #class DataSource ends
 
 class DataAccess(object):
@@ -115,8 +119,13 @@ class DataAccess(object):
         elif (sourcein == DataSource.YAHOO) :
             self.source = DataSource.YAHOO
             self.folderList.append(self.rootdir+"/Yahoo/") 
-            self.fileExtensionToRemove=".csv"  
-            
+            self.fileExtensionToRemove=".csv"
+
+        elif (sourcein == DataSource.QUANTQUOTE) :
+            self.source = DataSource.QUANTQUOTE
+            self.folderList.append(self.rootdir+"/Quantquote/")
+            self.fileExtensionToRemove=".csv"
+
         elif (sourcein == DataSource.COMPUSTAT):
             self.source= DataSource.COMPUSTAT
             self.midPath= "/Processed/Compustat"
@@ -230,6 +239,28 @@ class DataAccess(object):
                 else:
                     #incorrect value
                     raise ValueError ("Incorrect value for data_item %s"%sItem)
+
+            if( self.source == DataSource.QUANTQUOTE):
+                if (sItem == DataItem.OPEN):
+                    list_index.append(2)
+                elif (sItem == DataItem.HIGH):
+                    list_index.append (3)
+                elif (sItem ==DataItem.LOW):
+                    list_index.append(4)
+                elif (sItem == DataItem.ACTUAL_CLOSE):
+                    list_index.append(5)
+                elif(sItem == DataItem.VOL):
+                    list_index.append(6)
+                elif(sItem == DataItem.SPLITS):
+                    list_index.append(7)
+                elif(sItem == DataItem.EARNINGS):
+                    list_index.append(8)
+                elif(sItem == DataItem.DIVIDENDS):
+                    list_index.append(9)
+                else:
+                    #incorrect value
+                    raise ValueError ("Incorrect value for data_item %s"%sItem)
+
                 #end elif
         #end data_item loop
 
@@ -242,6 +273,8 @@ class DataAccess(object):
             try:
                 if (self.source == DataSource.CUSTOM) or (self.source == DataSource.MLT)or (self.source == DataSource.YAHOO):
                     file_path= self.getPathOfCSVFile(symbol);
+                elif (self.source==DataSource.QUANTQUOTE):
+                    file_path= self.getPathOfCSVFileQQ(symbol);
                 else:
                     file_path= self.getPathOfFile(symbol);
                 
@@ -298,6 +331,35 @@ class DataAccess(object):
                             else: 
                                 row[i]=float(item)
                         naData=np.vstack([np.array(row),naData])
+                elif (self.source==DataSource.QUANTQUOTE):
+                    creader = csv.reader(_file)
+                    row=creader.next()
+                    #row=creader.next()
+                    #row.pop(0)
+                    for i, item in enumerate(row):
+                        if i==0:
+                            try:
+                                date = dt.datetime.strptime(item, '%Y%m%d')
+                                date = date.strftime('%Y%m%d')
+                                row[i] = float(date)
+                            except:
+                                print "DATUMSFEHLER"
+                        else:
+                            row[i]=float(item)
+                    naData=np.array(row)
+                    for row in creader:
+                        for i, item in enumerate(row):
+                            if i==0:
+                                try:
+                                    date = dt.datetime.strptime(item, '%Y%m%d')
+                                    date = date.strftime('%Y%m%d')
+                                    row[i] = float(date)
+                                except:
+                                    print "DATUMSFEHLER"
+                            else:
+                                row[i]=float(item)
+                        naData=np.vstack([naData,np.array(row)])
+
                 else:
                     naData = pkl.load (_file)
                 _file.close()
@@ -328,25 +390,26 @@ class DataAccess(object):
             #print naData
             #print list_index
             ''' We open the file once, for each data item we need, fill out the array in all_stocks_data '''
+
             for lLabelNum, lLabelIndex in enumerate(list_index):
-                
+
                 ts_ctr = 0
                 b_skip = True
-                
+
                 ''' select timestamps and the data column we want '''
                 temp_np = naData[:,(0,lLabelIndex)]
-                
+
                 #print temp_np
-                
+
                 num_rows= temp_np.shape[0]
 
-                
+
                 symbol_ts_list = range(num_rows) # preallocate
                 for i in range (0, num_rows):
 
                     timebase = temp_np[i][0]
                     timeyear = int(timebase/10000)
-                    
+
                     # Quick hack to skip most of the data
                     # Note if we skip ALL the data, we still need to calculate
                     # last time, so we know nothing is valid later in the code
@@ -355,43 +418,43 @@ class DataAccess(object):
                     elif b_skip == True:
                         ts_ctr = i
                         b_skip = False
-                    
-                    
+
+
                     timemonth = int((timebase-timeyear*10000)/100)
                     timeday = int((timebase-timeyear*10000-timemonth*100))
                     timehour = 16
-    
+
                     #The earliest time it can generate a time for is platform dependent
                     symbol_ts_list[i]=dt.datetime(timeyear,timemonth,timeday,timehour) # To make the time 1600 hrs on the day previous to this midnight
-                    
+
                 #for ends
-    
-    
+
+
                 #now we have only timestamps and one data column
-                
-                
+
+
                 #Skip data from file which is before the first timestamp in ts_list
-    
+
                 while (ts_ctr < temp_np.shape[0]) and (symbol_ts_list[ts_ctr] < ts_list[0]):
                     ts_ctr=  ts_ctr+1
-                    
+
                     #print "skipping initial data"
                     #while ends
-                
+
                 for time_stamp in ts_list:
-                    
+
                     if (symbol_ts_list[-1] < time_stamp):
-                        #The timestamp is after the last timestamp for which we have data. So we give up. Note that we don't have to fill in NaNs because that is 
+                        #The timestamp is after the last timestamp for which we have data. So we give up. Note that we don't have to fill in NaNs because that is
                         #the default value.
                         break;
                     else:
                         while ((ts_ctr < temp_np.shape[0]) and (symbol_ts_list[ts_ctr]< time_stamp)):
                             ts_ctr = ts_ctr+1
                             #while ends
-                        #else ends
-                                            
+                            #else ends
+
                     #print "at time_stamp: " + str(time_stamp) + " and symbol_ts "  + str(symbol_ts_list[ts_ctr])
-                    
+
                     if (time_stamp == symbol_ts_list[ts_ctr]):
                         #Data is present for this timestamp. So add to numpy array.
                         #print "    adding to numpy array"
@@ -399,25 +462,26 @@ class DataAccess(object):
                             all_stocks_data[lLabelNum][ts_list.index(time_stamp)][symbol_ctr] = temp_np [ts_ctr][1]
                         else:
                             all_stocks_data[lLabelNum][ts_list.index(time_stamp)][symbol_ctr] = temp_np [1]
-                        #if ends
-                        
+                            #if ends
+
                         ts_ctr = ts_ctr +1
-                    
-                #inner for ends
-            #outer for ends
+
+                    #inner for ends
+                    #outer for ends
+
         #print all_stocks_data
-        
+
         ldmReturn = [] # List of data matrixes to return
         for naDataLabel in all_stocks_data:
-            ldmReturn.append( pa.DataFrame( naDataLabel, ts_list, symbol_list) )            
+            ldmReturn.append( pa.DataFrame( naDataLabel, ts_list, symbol_list) )
 
-        
+
         ''' Contine to support single return type as a non-list '''
         if bStr:
             return ldmReturn[0]
         else:
-            return ldmReturn            
-        
+            return ldmReturn
+
         #get_data_hardread ends
 
     def get_data (self, ts_list, symbol_list, data_item, verbose=False, bIncDelist=False):
@@ -427,7 +491,7 @@ class DataAccess(object):
         @param symbol_list: The list of symbols for which the data values are needed
         @param data_item: The data_item needed. Like open, close, volume etc.  May be a list, in which case a list of DataFrame is returned.
         @param bIncDelist: If true, delisted securities will be included.
-        @note: If a symbol is not found then a message is printed. All the values in the column for that stock will be NaN. Execution then 
+        @note: If a symbol is not found then a message is printed. All the values in the column for that stock will be NaN. Execution then
         continues as usual. No errors are raised at the moment.
         '''
 
@@ -560,8 +624,18 @@ class DataAccess(object):
                     return (str(str(path1)+str(symbol_name)+".csv"))
                     #if ends
                 #for ends
-        print "Did not find path to " + str (symbol_name)+". Looks like this file is missing"    
-    
+        print "Did not find path to " + str (symbol_name)+". Looks like this file is missing"
+
+    def getPathOfCSVFileQQ(self, symbol_name):
+
+        for path1 in self.folderList:
+            if (os.path.exists(str(path1)+"table_"+str(symbol_name).lower()+".csv")):
+                # Yay! We found it!
+                return (str(str(path1)+"table_"+str(symbol_name).lower()+".csv"))
+                #if ends
+                #for ends
+        print "Did not find path to " + str (symbol_name)+". Looks like this file is missing"
+
     def get_all_symbols (self):
         '''
         @summary: Returns a list of all the symbols located at any of the paths for this source. @see: {__init__}
@@ -582,7 +656,12 @@ class DataAccess(object):
             stocksAtThisPath = filter (lambda x:(str(x).find(str(self.fileExtensionToRemove)) > -1), stocksAtThisPath)
             #Now, we remove the .pkl to get the name of the stock
             stocksAtThisPath = map(lambda x:(x.partition(str(self.fileExtensionToRemove))[0]),stocksAtThisPath)
-            
+
+            if (self.source==DataSource.QUANTQUOTE):
+                stocksAtThisPath = filter (lambda x:(str(x).find(str("table_")) > -1), stocksAtThisPath)
+                stocksAtThisPath = map(lambda x:(x.partition(str("table_"))[2]),stocksAtThisPath)
+                stocksAtThisPath = map(lambda x:(x.upper()),stocksAtThisPath)
+
             listOfStocks.extend(stocksAtThisPath)
             #for stock in stocksAtThisPath:
                 #listOfStocks.append(stock)
